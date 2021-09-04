@@ -1,0 +1,49 @@
+.info{
+    color: white;
+    text-align: center;
+}
+
+.poster{
+
+    img {
+        max-width: 200px;
+        max-height: 300px;
+    }
+
+    .star-rate {
+        max-width: 200px;
+        margin-top: 5px;
+        direction: rtl;
+
+        input {
+            display: none;
+        }
+
+        label {
+            color: grey;
+            transition: all 0.2s ease;
+        }
+
+        input:not(:checked) ~ label:hover,
+        input:not(:checked) ~ label:hover ~ label {
+            color: orange;
+        }
+        
+        input:checked ~ label {
+            color: orange;
+        }
+    }
+}
+
+.fav-icon {
+    color: red;
+
+    :hover {
+        cursor: pointer;
+    }
+}
+
+mat-slide-toggle {
+    color: white;
+}
+

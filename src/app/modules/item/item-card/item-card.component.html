@@ -1,0 +1,38 @@
+<div class="card">
+    <img [src]="item.poster">
+    <button dissabled mat-mini-fab color="black">
+        <mat-icon *ngIf="item.type == 0">movie</mat-icon>
+        <mat-icon *ngIf="item.type == 1">tv</mat-icon>
+        <mat-icon *ngIf="item.type == 2">menu_book</mat-icon>
+        <mat-icon *ngIf="item.type == 3">videogame_asset</mat-icon>
+    </button>
+    <div class="overlay" (click)="onClick()">
+        <div *ngIf="item.type == 3">
+            <h3>{{item.title}}</h3>
+            <p>{{item.publishDate | date :'yyyy'}} | {{item.developer}}</p>
+            <p>{{item.platforms}}</p>
+            <p class="description">{{item.description}}</p>
+        </div>
+
+        <div *ngIf="item.type == 0">
+            <h3>{{item.title}}</h3>
+            <p>{{item.publishDate | date :'yyyy'}} | {{item.director}}</p>
+            <p><mat-icon>access_time</mat-icon> {{item.duration}} min.</p>
+            <p class="description">{{item.description}}</p>
+        </div>
+
+        <div *ngIf="item.type == 1">
+            <h3>{{item.title}}</h3>
+            <p>{{item.publishDate | date :'yyyy'}} | {{item.seasons}} seasons</p>
+            <p>{{item.episodes}} episodes</p>
+            <p class="description">{{item.description}}</p>
+        </div>
+
+        <div *ngIf="item.type == 2">
+            <h3>{{item.title}}</h3>
+            <p>{{item.publishDate | date :'yyyy'}} | {{item.author}}</p>
+            <p>{{item.pages}} pages</p>
+            <p class="description">{{item.description}}</p>
+        </div>
+    </div>
+</div>

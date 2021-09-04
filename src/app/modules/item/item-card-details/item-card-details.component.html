@@ -1,0 +1,45 @@
+<div class="dialog">
+    <div fxLayout="column" fxFlex=40 class="poster">
+        <img [src]="item.poster">
+        <div class="star-rate" fxLayoutAlign="center center">
+            <input type="radio" name="rate" id="rate-5">
+            <label for="rate-5"><mat-icon>star</mat-icon></label>
+            <input type="radio" name="rate" id="rate-4">
+            <label for="rate-4"><mat-icon>star</mat-icon></label>
+            <input type="radio" name="rate" id="rate-3">
+            <label for="rate-3"><mat-icon>star</mat-icon></label>
+            <input type="radio" name="rate" id="rate-2">
+            <label for="rate-2"><mat-icon>star</mat-icon></label>
+            <input type="radio" name="rate" id="rate-1">
+            <label for="rate-1"><mat-icon>star</mat-icon></label>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <div *ngIf="!faved" class="fav-icon" (click)="changeFav()">
+                <mat-icon>favorite_border</mat-icon>
+            </div>
+            <div *ngIf="faved" class="fav-icon" (click)="changeFav()">
+                <mat-icon>favorite</mat-icon>
+            </div>
+            <mat-slide-toggle
+                [color]="accent"
+                [checked]="finished"
+                (toggleChange)="changeFinished()">
+                Finished!
+            </mat-slide-toggle>
+        </div>
+    </div>
+    <div fxLayout="column" fxFlex class="info">
+        <h2>{{item.title}}</h2>
+        <div *ngIf="item.type == 0">
+            <h3>{{item.publishDate | date:'yyyy'}} | {{item.director}}</h3>
+            <h4><mat-icon>access_time</mat-icon> {{item.duration}} min.</h4>
+            <p class="description">{{item.description}}</p>
+        </div>
+        <div *ngIf="item.type == 1">
+        </div>
+        <div *ngIf="item.type == 2">
+        </div>
+        <div *ngIf="item.type == 3">
+        </div>
+    </div>
+</div>

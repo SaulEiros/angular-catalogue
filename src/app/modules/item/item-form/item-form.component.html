@@ -1,0 +1,12 @@
+<div class="dialog">
+    <div fxLayout="colum" fxflex="40">
+        <div class="dropzone" itemDnd>
+            <input type="file" #fileDropRef id="fileDropRef"
+            (change)="fileBrowseHandler($event.target.files)" />
+            <h3>Drag your image here!</h3>
+            <h3>or</h3>
+            <label for="fileDropRef">Browse for file</label>
+        </div>
+    </div>
+</div>
+
